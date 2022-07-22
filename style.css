@@ -1,0 +1,16 @@
+body{
+    background-color: #ccc;
+}
+#container {
+    display: flex;
+    justify-content: center;
+}
+#container button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 100ms;
+}
+#container button:hover{
+    transform: scale(0.7);
+}

@@ -17,9 +17,10 @@ switch (randomResult){
 }
 }
 
+
 function playRound(playerSelection, computerSelection){
-    // if both players pick same cards, withdraw
-        if (playerSelection.toLowerCase() === computerSelection){
+     // if both players pick same cards, withdraw
+        if (playerSelection === computerSelection){
                  return 'it\'s a Draw, Lets play again!';
          }
     // player rock , computer paper
@@ -60,20 +61,38 @@ function playRound(playerSelection, computerSelection){
              }
      }
 
-let game = ()=> {
+let game = () => {
     playerScore =0 , computerScore =0;
-          for (let i= 0 ; i < 5; i++){
-            const playerSelection = window.prompt('Lets play rock paper scissors, Enter your choice from Rock, paper, scissors ').toLowerCase();
-            const computerSelection = computerPlay();
-            const result= playRound(playerSelection, computerSelection);
-            console.log(`Round ${i+ 1} `);
-            console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection}`);
-            console.log(result);
-          }
-        console.log(playerScore,computerScore);
-      console.log(scores());// displays the result after the five round
-       
+         // for (let i= 0 ; i < 5; i++){
+            // selecting all the three buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach((button) => {
+                button.addEventListener('click', e => {
+                const playerSelection = button.id;
+                const computerSelection = computerPlay();
+                console.log(playerSelection,computerSelection);
+                const result= playRound(playerSelection, computerSelection);
+                console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection}`);
+                console.log(result);
+                const node = document.getElementById('container');
+                const div = document.createElement('div');
+               // const divresult = document.createElement('div');
+                const score = document.createTextNode(result);
+                const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection}`);
+                node.appendChild(div);
+                div.append(selection,score);
+               // div.appendChild(score);
+                div.setAttribute('')
+                });
+             });
+         
+            //console.log(`Round ${i+ 1} `);
+            
+         // }
+       console.log(playerScore,computerScore);
+       console.log(scores());// displays the result after the five round
     }
+
     function scores(){
         if(playerScore > computerScore){
             return `Player won! Player scored : ${playerScore} and Computer scored: ${computerScore}`;
@@ -83,6 +102,6 @@ let game = ()=> {
               return `it's a tie Computer scored : ${computerScore} and Player scored: ${playerScore}`;
       }
     }
-game();
 
+game();
 
