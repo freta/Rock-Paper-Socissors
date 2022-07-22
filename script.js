@@ -74,15 +74,18 @@ let game = () => {
                 const result= playRound(playerSelection, computerSelection);
                 console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection}`);
                 console.log(result);
-                const node = document.getElementById('container');
-                const div = document.createElement('div');
-               // const divresult = document.createElement('div');
-                const score = document.createTextNode(result);
-                const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection}`);
-                node.appendChild(div);
-                div.append(selection,score);
-               // div.appendChild(score);
-                div.setAttribute('')
+                const node = document.getElementById('result');
+                
+                    const div1 = document.createElement('div');
+                    const div2 = document.createElement('div');
+                   // const divresult = document.createElement('div');
+                    const score = document.createTextNode(result);
+                    const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection}`);
+                    node.appendChild(div1);
+                    div1.appendChild(div2);
+                    div1.appendChild(score);
+                    div2.appendChild(selection);
+                 
                 });
              });
          
