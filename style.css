@@ -14,3 +14,14 @@ body{
 #container button:hover{
     transform: scale(0.7);
 }
+.instruction{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+    
+}
+.instruction p {
+   margin: 0% 30%;
+   text-align: justify;
+}

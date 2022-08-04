@@ -1,6 +1,16 @@
 
 let playerScore = 0;
 let computerScore= 0;
+const rock= document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors= document.querySelector('#scissors');
+const buttons = document.querySelectorAll('button');
+const container = document.getElementById('result');
+
+
+
+
+
 
 function computerPlay(){
  let randomResult= (Math.floor(Math.random() * 3));
@@ -65,36 +75,39 @@ let game = () => {
     playerScore =0 , computerScore =0;
          // for (let i= 0 ; i < 5; i++){
             // selecting all the three buttons
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach((button) => {
-                button.addEventListener('click', e => {
-                const playerSelection = button.id;
-                const computerSelection = computerPlay();
-                console.log(playerSelection,computerSelection);
-                const result= playRound(playerSelection, computerSelection);
-                console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection}`);
-                console.log(result);
-                const node = document.getElementById('result');
-                
-                    const div1 = document.createElement('div');
-                    const div2 = document.createElement('div');
-                   // const divresult = document.createElement('div');
-                    const score = document.createTextNode(result);
-                    const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection}`);
-                    node.appendChild(div1);
-                    div1.appendChild(div2);
-                    div1.appendChild(score);
-                    div2.appendChild(selection);
-                 
-                });
-             });
-         
-            //console.log(`Round ${i+ 1} `);
             
-         // }
-       console.log(playerScore,computerScore);
-       console.log(scores());// displays the result after the five round
-    }
+            [rock,paper,scissors].forEach((button) => {
+                button.addEventListener('click', (e) => {
+                    containDisapper(container, button.id); 
+                    
+                });
+            });
+            // console.log(playerScore,computerScore);
+            //  console.log(scores());// displays the result after the five round
+            
+}
+
+function containDisapper(container, sel){
+    
+    const playerSelection = sel;
+    const computerSelection = computerPlay();
+    const result= playRound(playerSelection, computerSelection);
+    console.log(playerSelection,computerSelection);
+    console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection}`);
+    console.log(result);
+    const div1 = document.createElement('div');
+    const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection}`);
+    const score = document.createTextNode(result);
+   
+    
+    container.appendChild(div1);
+    const div2 = document.createElement('div1');
+   // div1.appendChild(div2);
+    div1.appendChild(score);
+   div2.appendChild(selection);
+   //div1.remove();
+   
+}
 
     function scores(){
         if(playerScore > computerScore){
@@ -107,4 +120,5 @@ let game = () => {
     }
 
 game();
+
 
