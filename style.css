@@ -25,3 +25,9 @@ body{
    margin: 0% 30%;
    text-align: justify;
 }
+#resultcon{
+    display: flex;
+    
+    justify-content: center;
+   
+}
