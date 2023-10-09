@@ -1,33 +1,36 @@
 body{
     background-color: #ccc;
 }
+
 #container, #result {
     display: flex;
     justify-content: center;
 }
+
 #container button{
     background: none;
     border: none;
     cursor: pointer;
     transition: 100ms;
 }
+
 #container button:hover{
     transform: scale(0.7);
 }
+
 .instruction{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-   
-    
 }
+
 .instruction p {
    margin: 0% 30%;
    text-align: justify;
 }
+
 #resultcon{
     display: flex;
-    
     justify-content: center;
    
 }

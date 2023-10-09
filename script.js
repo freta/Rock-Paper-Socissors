@@ -1,12 +1,9 @@
-
 let playerScore = 0;
 let computerScore= 0;
 const rock= document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors= document.querySelector('#scissors');
 const rescont = document.querySelector('#resultcon');
-const div1 = document.createElement('div');
-const div2 = document.createElement('div');
 
 
 function computerPlay(){
@@ -64,24 +61,16 @@ function playRound(playerSelection, computerSelection){
 
 let game = () => {
     playerScore =0 , computerScore =0;
-    //rescont.removeChild(div2);
-            [rock,paper,scissors].forEach((button) => {
-                button.addEventListener('click', (e) => {
-                 containDisapper(container, button.id); 
-                  
-                });
-            });
-            
+        [rock,paper,scissors].forEach((button) => {
+        button.addEventListener('click', (e) => {
+        containDisapper(button.id); 
+        });
+    });
 }
 
-function containDisapper(container, sel) {
+function containDisapper(sel) {
         const playerSelection = sel;
         const computerSelection = computerPlay();
-        const result= playRound(playerSelection, computerSelection);
-         console.log(playerSelection,computerSelection);
-        //console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection} `);
-        //const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection} `);
-        //const score = document.createTextNode(result);
         rescont.innerHTML = `Player selected ${playerSelection}, Computer selected ${computerSelection}`
     }
 
