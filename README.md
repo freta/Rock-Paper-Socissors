@@ -13,6 +13,6 @@ Rock-paper-scissors is a quick win-loose game that is often used to determine wh
 ## Best for: 
 Two players How to play: In rock-paper-scissors, two players will each randomly choose one of three hand signs: rock (made by making a fist), paper (made by laying your hand flat), or scissors (made by holding out two fingers to look like scissors). Both players show their signs at the same time to see who will win.
 Here are the rules that determine which sign beats another:
-###Rock wins over scissors (because rock smashes scissors)
-###Scissors win over paper (because scissors cut paper)
-###Paper wins over rock (because paper covers rock)
+##Rock wins over scissors (because rock smashes scissors)
+##Scissors win over paper (because scissors cut paper)
+##Paper wins over rock (because paper covers rock)
