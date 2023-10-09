@@ -9,20 +9,19 @@ const div1 = document.createElement('div');
 const div2 = document.createElement('div');
 
 
-
 function computerPlay(){
- let randomResult= (Math.floor(Math.random() * 3));
-switch (randomResult){
-    case 0:
-     return('rock');
-     break;
-    case 1:
-     return('paper');
-     break;
-    case 2:
-     return('scissors');  
-     break;
-}
+let randomResult= (Math.floor(Math.random() * 3));
+    switch (randomResult){
+        case 0:
+        return('rock');
+        break;
+        case 1:
+        return('paper');
+        break;
+        case 2:
+        return('scissors');  
+        break;
+    }
 }
 
 
@@ -61,15 +60,12 @@ function playRound(playerSelection, computerSelection){
             playerScore++;
             return 'Player win, paper beats rock';
              }
-     }
+    }
 
 let game = () => {
     playerScore =0 , computerScore =0;
-    //div1.parentNode.removeChild(div1);
-     //div2.parentNode.removeChild(div2);
-    // rescont.removeChild(div1);
-    // rescont.removeChild(div2);
-                 [rock,paper,scissors].forEach((button) => {
+    //rescont.removeChild(div2);
+            [rock,paper,scissors].forEach((button) => {
                 button.addEventListener('click', (e) => {
                  containDisapper(container, button.id); 
                   
@@ -78,35 +74,26 @@ let game = () => {
             
 }
 
-function containDisapper(container, sel){
-  
-    const playerSelection = sel;
-    const computerSelection = computerPlay();
-    const result= playRound(playerSelection, computerSelection);
-    console.log(playerSelection,computerSelection);
-    console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection} `);
-    console.log(result);
-    const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection} `);
-    const score = document.createTextNode(result);
-    rescont.appendChild(div1);
-    rescont.appendChild(div2);
-    div1.appendChild(selection);
-    div2.appendChild(score);
-  
-    
-    
-    
-   }
-
-    function scores(){
-        if(playerScore > computerScore){
-            return `Player won! Player scored : ${playerScore} and Computer scored: ${computerScore}`;
-        }else if(playerScore > computerScore){
-            return `Computer won! Computer scored : ${computerScore} and Player scored: ${playerScore}`;
-        } else if(playerScore == computerScore) {
-              return `it's a tie Computer scored : ${computerScore} and Player scored: ${playerScore}`;
-      }
+function containDisapper(container, sel) {
+        const playerSelection = sel;
+        const computerSelection = computerPlay();
+        const result= playRound(playerSelection, computerSelection);
+         console.log(playerSelection,computerSelection);
+        //console.log( `Player selected ${playerSelection}, Computer selected ${computerSelection} `);
+        //const selection = document.createTextNode(`Player selected ${playerSelection}, Computer selected ${computerSelection} `);
+        //const score = document.createTextNode(result);
+        rescont.innerHTML = `Player selected ${playerSelection}, Computer selected ${computerSelection}`
     }
+
+function scores(){
+    if(playerScore > computerScore){
+        return `Player won! Player scored : ${playerScore} and Computer scored: ${computerScore}`;
+    }else if(playerScore > computerScore){
+        return `Computer won! Computer scored : ${computerScore} and Player scored: ${playerScore}`;
+    } else if(playerScore == computerScore) {
+        return `it's a tie Computer scored : ${computerScore} and Player scored: ${playerScore}`;
+    }
+}
 
 game();
 
